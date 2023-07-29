@@ -15,7 +15,7 @@ const CartItem: FC<CartItemProps> = ({title,size,quantity,price }:CartItemProps)
     <div className='cart-item'>
       <Image
         priority
-        src="/classic-tee.jpg"
+        src="https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg"
         alt="classic-tee"
         width={80}
         height={50}
