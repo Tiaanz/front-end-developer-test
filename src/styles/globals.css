@@ -118,6 +118,7 @@ html {
 /* ------------CART SECTION------------- */
 .cart {
   margin-right: 11rem;
+
   height: 100%;
   padding: 8px;
   cursor: pointer;
@@ -229,5 +230,33 @@ html {
 
   .product-detail .price {
     border-bottom: 0px;
+  }
+}
+
+/* ------[ON TABLET and SMALL SIZE LAPTOP]----- */
+@media screen and (min-width: 650px) and (max-width: 1200px) {
+  .container {
+    width: 90%;
+    margin: 2.5rem auto;
+  }
+
+  .product-image {
+    margin: 1rem;
+  }
+
+  .cart {
+    margin-right: 4rem;
+  }
+
+  .cart-on-click {
+    right: 4rem;
+  }
+
+  .mini-cart {
+    right: 4rem;
+  }
+
+  .empty-cart {
+    right: 4rem;
   }
 }
