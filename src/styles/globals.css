@@ -13,10 +13,20 @@
   --color-required: #c90000;
 }
 
+/*--------------root font size of the browser -------------*/
+html {
+  font-size: 16px;
+}
+
 * {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
   box-sizing: border-box;
 }
 
+/* ------------HEADER SECTION------------- */
 .header {
   display: flex;
   height: 2rem;
@@ -28,23 +38,7 @@
   color: var(--color-font-grey);
 }
 
-.cart {
-  margin-right: 11rem;
-  height: 100%;
-  padding: 8px;
-  cursor: pointer;
-}
-
-.cart-on-click {
-  position: absolute;
-  right: 11rem;
-  background-color: var(--color-background-white);
-  border: 1.5px solid var(--color-border-light-grey);
-  border-bottom: 0;
-  padding: 7px;
-  z-index: 999;
-}
-
+/* ------------MAIN SECTION------------- */
 .container {
   display: flex;
   width: 80%;
@@ -121,6 +115,28 @@
   color: var(--color-header-background);
 }
 
+/* ------------CART SECTION------------- */
+.cart {
+  margin-right: 11rem;
+  height: 100%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  display: none;
+}
+
+.cart-on-click {
+  position: absolute;
+  right: 11rem;
+  background-color: var(--color-background-white);
+  border: 1.5px solid var(--color-border-light-grey);
+  border-bottom: 0;
+  padding: 7px;
+  z-index: 999;
+}
+
 .mini-cart {
   position: absolute;
   padding: 1.5rem;
@@ -153,4 +169,65 @@
 
 .mini-cart .cart-item .cart-item-detail div:nth-child(n) {
   margin-bottom: 8px;
+}
+
+/* ---------[ON MOBILE DEVICES]--------- */
+@media screen and (max-width: 650px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+    margin: 2.5rem auto;
+  }
+
+  .cart {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+  }
+
+  .cart-on-click {
+    display: flex;
+    right: 2rem;
+  }
+
+  .mini-cart {
+    width: 86%;
+    right: 2rem;
+  }
+
+  .empty-cart {
+    right: 2rem;
+  }
+
+  .cart-text {
+    display: none;
+  }
+
+  .cart-icon {
+    display: block;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .mini-cart .cart-item .cart-item-detail {
+    padding-left: 2rem;
+    padding-right: 5.8rem;
+  }
+
+  .product-image {
+    margin: 0;
+  }
+
+  .product-detail {
+    max-width: 100%;
+  }
+
+  .product-detail h1 {
+    border-bottom: 0px;
+    margin-top: 1.5rem;
+  }
+
+  .product-detail .price {
+    border-bottom: 0px;
+  }
 }
