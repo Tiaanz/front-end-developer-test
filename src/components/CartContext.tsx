@@ -1,10 +1,6 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react'
 
 interface CartContextType {
-  // email: string
-  // setEmail: Dispatch<SetStateAction<string>>
-  // items: Item[]
-  // totalAmount: number
   cartData: {
     items: Item[]
     totalAmount:number
@@ -21,8 +17,6 @@ interface Item {
 }
 
 export const CartDetailContext = createContext<CartContextType>({
-  // items: [],
-  // totalAmount: 0,
   cartData:{items:[],totalAmount:0},
   setCartData: () => {},
 })
@@ -41,8 +35,6 @@ const CartContext = ({ children }: Props) => {
     items: [],
     totalAmount: 0,
   })
-
-  
 
   return (
     <CartDetailContext.Provider

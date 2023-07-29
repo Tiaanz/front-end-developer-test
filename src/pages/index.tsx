@@ -18,13 +18,6 @@ interface sizeOption {
   label: string
 }
 
-interface CartDetail {
-  id: number
-  title: string
-  size: string
-  number: number
-}
-
 export default function Home() {
   const cartContext = useContext(CartDetailContext)
 
@@ -38,6 +31,7 @@ export default function Home() {
     imageURL: '',
     sizeOptions: [],
   })
+  const [errorMessage,setErrorMessage]=useState('')
 
   function handleSelection(size: string) {
     setSizeSelected(size)
@@ -45,11 +39,10 @@ export default function Home() {
 
   function AddToCart() {
     const newCart = { ...cartContext.cartData }
-
-    //Check if the product exists in the cart
+    //If the size does not exist in the cart
     if (
-       
-      sizeSelected && newCart.items.findIndex((item) => item.size === sizeSelected) === -1
+      sizeSelected &&
+      newCart.items.findIndex((item) => item.size === sizeSelected) === -1
     ) {
       //add the product to the cart
       newCart.items.push({
@@ -59,10 +52,23 @@ export default function Home() {
         price: productDetail.price,
         quantity: 1,
       })
-      //increase the quantity of the product
+      //If the size exists in the cart but the product's id does not exist
+    } else if (
+      newCart.items.findIndex((item) => item.size === sizeSelected) !== -1 &&
+      newCart.items.findIndex((item) => item.id === productDetail.id) === -1 &&
+      sizeSelected
+    ) {
+      newCart.items.push({
+        id: productDetail.id,
+        title: productDetail.title,
+        size: sizeSelected,
+        price: productDetail.price,
+        quantity: 1,
+      })
+      //Both of the product's ID and size exist in the cart 
     } else {
       const updatedCart = newCart.items.map((item) => {
-        if (item.size === sizeSelected) {
+        if (item.size === sizeSelected && item.id === productDetail.id) {
           return { ...item, quantity: item.quantity + 1 }
         }
         return item
@@ -70,7 +76,12 @@ export default function Home() {
       newCart.items = updatedCart
     }
     //increase the total amount of the cart
-    newCart.totalAmount += 1
+    if (sizeSelected) {
+      newCart.totalAmount += 1
+    } else {
+      setErrorMessage("Please select the size.")
+    }
+    
     //reset the cart
     cartContext.setCartData(newCart)
   }
@@ -115,6 +126,7 @@ export default function Home() {
           <p>{productDetail.description}</p>
           <div className="size">
             SIZE<span className="star">*</span>
+            <div style={{color:"red"}}>{errorMessage}</div>
           </div>
           <div className="size-buttons">
             {productDetail.sizeOptions.map((item) => (
@@ -126,6 +138,7 @@ export default function Home() {
               />
             ))}
           </div>
+          
           <button className="add-to-cart-btn" onClick={AddToCart}>
             ADD TO CART
           </button>
