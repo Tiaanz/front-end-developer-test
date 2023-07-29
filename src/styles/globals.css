@@ -70,10 +70,22 @@
 
 .product-detail .size-button{
   padding:9px 14px;
-  margin-left: 8px;
+  margin-right: 8px;
   border:1px solid #CCCCCC;
   font-size: 0.75rem;
   color: #888888;
+}
+
+.product-detail .add-to-cart-btn{
+  padding:6px 30px;
+  border:2px solid #222222;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.product-detail .add-to-cart-btn:hover{
+  background-color: #222222;
+  color:#f6f6f7
 }
 
 

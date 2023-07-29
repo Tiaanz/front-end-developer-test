@@ -34,7 +34,7 @@ export default function Home() {
           <SizeButton size={'M'} />
           <SizeButton size={'L'} />
         </div>
-        <button>ADD TO CART</button>
+        <button className='add-to-cart-btn'>ADD TO CART</button>
       </div>
     </main>
   )
