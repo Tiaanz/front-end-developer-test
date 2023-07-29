@@ -35,6 +35,7 @@ export default function Home() {
 
   function handleSelection(size: string) {
     setSizeSelected(size)
+    setErrorMessage('')
   }
 
   function AddToCart() {
@@ -125,7 +126,7 @@ export default function Home() {
           <div className="price">${productDetail.price}.00</div>
           <p>{productDetail.description}</p>
           <div className="size">
-            SIZE<span className="star">*</span>
+            SIZE<span className="star">*</span>  <span className='text-slate-900'>{sizeSelected}</span>
             <div style={{color:"red"}}>{errorMessage}</div>
           </div>
           <div className="size-buttons">

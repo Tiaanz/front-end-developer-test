@@ -118,7 +118,6 @@ html {
 /* ------------CART SECTION------------- */
 .cart {
   margin-right: 11rem;
-
   height: 100%;
   padding: 8px;
   cursor: pointer;
@@ -145,6 +144,9 @@ html {
   background-color: var(--color-background-white);
   top: 2rem;
   right: 11rem;
+  color:var(--color-font-primary);
+  font-size: 0.9rem;
+  
 }
 
 .empty-cart {
