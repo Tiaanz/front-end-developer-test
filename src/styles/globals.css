@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 .header{
   display: flex;
   justify-content: flex-end;
@@ -15,3 +18,65 @@
 .cart{
    margin-right: 11rem;
 }
+
+.container{
+  display: flex;
+  width: 80%;
+  margin:2.5rem auto;
+}
+
+.product-image{
+  margin:0 8rem;
+}
+
+.product-detail{
+  max-width: 40%;
+}
+
+.product-detail h1{
+  padding-bottom: 1rem;
+  border-bottom:1px solid #CCCCCC;
+  font-size: 1.5rem;
+  font-weight: 300;
+  
+}
+
+.product-detail .price{
+  padding:8px 0;
+  border-bottom:1px solid #CCCCCC;
+  font-weight:600;
+}
+
+.product-detail p{
+  padding:1.2rem 0;
+  color:#888888;
+  font-size:0.9rem;
+
+}
+
+.product-detail .size{
+  padding:1rem 0;
+  color:#888888;
+}
+
+.product-detail .star{
+  color:#C90000
+}
+
+.product-detail .size-buttons{
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.product-detail .size-button{
+  padding:9px 14px;
+  margin-left: 8px;
+  border:1px solid #CCCCCC;
+  font-size: 0.75rem;
+  color: #888888;
+}
+
+
+
+
+
