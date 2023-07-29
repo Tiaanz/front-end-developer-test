@@ -16,28 +16,29 @@ const Header = ({ showMiniCart, setShowMiniCart }: Props) => {
       <div className="cart" onClick={() => setShowMiniCart(true)}>
         <FiShoppingCart className="cart-icon" />
         <span className="cart-text">My Cart</span> (
-        {cartContext.cartData.totalAmount})
+        {cartContext.totalAmount})
       </div>
-      {cartContext.cartData.totalAmount === 0 && showMiniCart && (
+      {/* When the cart is empty */}
+      {cartContext.totalAmount === 0 && showMiniCart && (
         <>
           <div className="cart-on-click" onClick={() => setShowMiniCart(false)}>
             <FiShoppingCart className="cart-icon" />
             <span className="cart-text">My Cart</span> (
-            {cartContext.cartData.totalAmount})
+            {cartContext.totalAmount})
           </div>
           <div className="empty-cart">The cart is empty!</div>
         </>
       )}
-
-      {showMiniCart && cartContext.cartData.totalAmount !== 0 && (
+      {/* When the cart is not empty */}
+      {showMiniCart && cartContext.totalAmount !== 0 && (
         <>
           <div className="cart-on-click" onClick={() => setShowMiniCart(false)}>
             <FiShoppingCart className="cart-icon" />
             <span className="cart-text">My Cart</span>(
-            {cartContext.cartData.totalAmount})
+            {cartContext.totalAmount})
           </div>
           <div className="mini-cart">
-            {cartContext.cartData.items.map((item) => (
+            {cartContext.items.map((item) => (
               <CartItem
                 key={item.size + item.id}
                 title={item.title}

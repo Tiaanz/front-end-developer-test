@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useState } from 'react'
+import { FC } from 'react'
 
 interface SizeButtonProps {
   size: string
