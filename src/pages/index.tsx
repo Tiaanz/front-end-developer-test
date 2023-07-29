@@ -3,6 +3,7 @@ import SizeButton from '@/components/SizeButton'
 import Header from '@/components/Header'
 import { useContext, useEffect, useState } from 'react'
 import { CartDetailContext } from '@/components/CartContext'
+import Meta from '@/components/Meta'
 
 interface ProductProps {
   id: number
@@ -74,6 +75,7 @@ export default function Home() {
 
   return (
     <>
+      <Meta title="Clothing site" />
       <Header showMiniCart={showMiniCart} setShowMiniCart={setShowMiniCart} />
       <main className="container" onClick={() => setShowMiniCart(false)}>
         <div className="product-image">
