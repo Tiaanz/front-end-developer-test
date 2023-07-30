@@ -53,7 +53,7 @@ export default function Home() {
       setErrorMessage('Please select the size.')
     }
   }
-
+//Fetch data on page load
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
@@ -82,8 +82,7 @@ export default function Home() {
         <div className="product-image">
           <Image
             priority
-            src={productDetail.imageURL}
-            
+            src={productDetail.imageURL?productDetail.imageURL:"https://www"}
             alt="classic-tee"
             width={430}
             height={500}
@@ -91,8 +90,8 @@ export default function Home() {
           ></Image>
         </div>
         <div className="product-detail">
-          {/* <h1>{productDetail.title}</h1> */}
-          <h1>Classic Tee</h1>
+          <h1>{productDetail.title}</h1>
+          {/* <h1>Classic Tee</h1> */}
           <div className="price">${productDetail.price}.00</div>
           <p>{productDetail.description}</p>
           <div className="size">
