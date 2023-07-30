@@ -6,13 +6,14 @@ This web page is bootstrapped with `create-next-app`.
 - CSS
 - TypeScript
 - Next.js
-- Jest
+- Jest (testing)
 
 
 ## Features
 
-- Select the product's size and add it to the cart
-- View the cart and the summary of selected products
+- Select the product's size and add it to the cart.
+- View the cart and the summary of selected products.
+- The site is responsive to various devices such as mobile, tablet and laptop.
 
 
 ## Installation
