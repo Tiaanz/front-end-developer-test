@@ -20,7 +20,6 @@ interface sizeOption {
 }
 
 export default function Home() {
-
   const cartContext = useContext(CartDetailContext)
 
   const [showMiniCart, setShowMiniCart] = useState(false)
@@ -34,6 +33,7 @@ export default function Home() {
     sizeOptions: [],
   })
   const [errorMessage, setErrorMessage] = useState('')
+  const [dataFetchError, setDataFetchError] = useState('')
 
   //A function to handle when the size button is selected
   function handleSelection(size: string) {
@@ -41,7 +41,7 @@ export default function Home() {
     setErrorMessage('')
   }
 
-    //A function to handle when the ADD TO CART button is clicked
+  //A function to handle when the ADD TO CART button is clicked
   function AddToCart() {
     if (sizeSelected) {
       cartContext.addItem(sizeSelected, {
@@ -50,33 +50,42 @@ export default function Home() {
         size: sizeSelected,
         price: productDetail.price,
         quantity: 1,
-        imageURL:productDetail.imageURL
+        imageURL: productDetail.imageURL,
       })
     } else {
       setErrorMessage('Please select the size.')
     }
   }
 
-//Fetch data on page load
+  //Fetch data on page load
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        'https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product'
-      )
-      const productData = (await response.json()) as ProductProps
-      const { id, title, description, price, imageURL, sizeOptions } =
-        productData
-      setProductDetail({
-        id,
-        title,
-        description,
-        price,
-        imageURL,
-        sizeOptions,
-      })
+      try {
+        const response = await fetch(
+          'https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product'
+        )
+        const productData = (await response.json()) as ProductProps
+        const { id, title, description, price, imageURL, sizeOptions } =
+          productData
+        setProductDetail({
+          id,
+          title,
+          description,
+          price,
+          imageURL,
+          sizeOptions,
+        })
+      } catch (error) {
+        setDataFetchError('Something went wrong, Please try again later.')
+      }
     }
     fetchData()
   }, [])
+
+  //If data could not be fetched
+  if (dataFetchError) {
+    return <h1 className="container text-lg">{dataFetchError}</h1>
+  }
 
   return (
     <>
@@ -86,7 +95,11 @@ export default function Home() {
         <div className="product-image">
           <Image
             priority
-            src={productDetail.imageURL?productDetail.imageURL:"https://media.tenor.com/ao5pNZBUF58AAAAC/transparent-loading.gif"}
+            src={
+              productDetail.imageURL
+                ? productDetail.imageURL
+                : 'https://media.tenor.com/ao5pNZBUF58AAAAC/transparent-loading.gif'
+            }
             alt="classic-tee"
             width={430}
             height={500}
