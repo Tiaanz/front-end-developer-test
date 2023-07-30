@@ -20,6 +20,7 @@ interface sizeOption {
 }
 
 export default function Home() {
+
   const cartContext = useContext(CartDetailContext)
 
   const [showMiniCart, setShowMiniCart] = useState(false)
@@ -34,11 +35,13 @@ export default function Home() {
   })
   const [errorMessage, setErrorMessage] = useState('')
 
+  //A function to handle when the size button is selected
   function handleSelection(size: string) {
     setSizeSelected(size)
     setErrorMessage('')
   }
 
+    //A function to handle when the ADD TO CART button is clicked
   function AddToCart() {
     if (sizeSelected) {
       cartContext.addItem(sizeSelected, {
@@ -53,6 +56,7 @@ export default function Home() {
       setErrorMessage('Please select the size.')
     }
   }
+
 //Fetch data on page load
   useEffect(() => {
     async function fetchData() {
@@ -91,7 +95,6 @@ export default function Home() {
         </div>
         <div className="product-detail">
           <h1>{productDetail.title}</h1>
-          {/* <h1>Classic Tee</h1> */}
           <div className="price">${productDetail.price}.00</div>
           <p>{productDetail.description}</p>
           <div className="size">
