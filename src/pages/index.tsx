@@ -86,7 +86,7 @@ export default function Home() {
         <div className="product-image">
           <Image
             priority
-            src={productDetail.imageURL?productDetail.imageURL:"https://www.pacificfoodmachinery.com.au/media/catalog/product/placeholder/default/no-product-image-400x400.png"}
+            src={productDetail.imageURL?productDetail.imageURL:"https://media.tenor.com/ao5pNZBUF58AAAAC/transparent-loading.gif"}
             alt="classic-tee"
             width={430}
             height={500}
