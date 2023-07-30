@@ -82,6 +82,7 @@ export default function Home() {
           <Image
             priority
             src={productDetail.imageURL}
+            src
             alt="classic-tee"
             width={430}
             height={500}
@@ -89,7 +90,8 @@ export default function Home() {
           ></Image>
         </div>
         <div className="product-detail">
-          <h1>{productDetail.title}</h1>
+          {/* <h1>{productDetail.title}</h1> */}
+          <h1>Classic Tee</h1>
           <div className="price">${productDetail.price}.00</div>
           <p>{productDetail.description}</p>
           <div className="size">
