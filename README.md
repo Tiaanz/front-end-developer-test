@@ -6,6 +6,7 @@ This web page is bootstrapped with `create-next-app`.
 - CSS
 - TypeScript
 - Next.js
+- Jest
 
 
 ## Features
@@ -32,4 +33,8 @@ npm install
 
 ```bash
 npm run dev
+```
+## Unit test
+```bash
+npm run test
 ```
