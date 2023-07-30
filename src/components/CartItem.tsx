@@ -6,16 +6,17 @@ interface CartItemProps {
   title: string
   size: string
   price:number
-  quantity:number
+  quantity: number
+  imageURL:string
 }
 
-const CartItem: FC<CartItemProps> = ({title,size,quantity,price }:CartItemProps) => {
+const CartItem: FC<CartItemProps> = ({title,size,quantity,price,imageURL }:CartItemProps) => {
   
   return (
     <div className='cart-item'>
       <Image
         priority
-        src="https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg"
+        src={imageURL}
         alt="classic-tee"
         width={80}
         height={50}

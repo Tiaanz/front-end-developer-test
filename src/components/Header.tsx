@@ -45,6 +45,7 @@ const Header = ({ showMiniCart, setShowMiniCart }: Props) => {
                 quantity={item.quantity}
                 size={item.size}
                 price={item.price}
+                imageURL={item.imageURL}
               />
             ))}
           </div>

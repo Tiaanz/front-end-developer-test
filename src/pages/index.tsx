@@ -47,6 +47,7 @@ export default function Home() {
         size: sizeSelected,
         price: productDetail.price,
         quantity: 1,
+        imageURL:productDetail.imageURL
       })
     } else {
       setErrorMessage('Please select the size.')
@@ -82,7 +83,7 @@ export default function Home() {
           <Image
             priority
             src={productDetail.imageURL}
-            src
+            
             alt="classic-tee"
             width={430}
             height={500}

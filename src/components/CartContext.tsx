@@ -12,7 +12,8 @@ interface Item {
   size: string
   price: number
   quantity: number
-}
+  imageURL:string
+ }
 
 export const CartDetailContext = createContext<CartContextType>({
   items: [],
